@@ -1,5 +1,4 @@
 # personaldata.cpp
-///Implementacion de la clase para registro de datos personales
 #include "personaldata.h"
 
 ///Constructor base
@@ -30,6 +29,10 @@ std::string PersonalData::getStatus() {
     return status;
     }
 
+std::string PersonalData::getCurp() {
+    return curp;
+    }
+
 void PersonalData::setName(Name& n) {
     name = n;
     }
@@ -48,6 +51,30 @@ void PersonalData::setEmail(std::string& e) {
 
 void PersonalData::setStatus(std::string& s) {
     status = s;
+    }
+
+void PersonalData::setCurp(std::string& c){
+    curp = c;
+    }
+
+std::string PersonalData::toStringData(){
+    std::string result;
+
+    result += "Nombre: ";
+    result += name.toString();
+    result += " Curp: ";
+    result += curp;
+    result += " Direccion: ";
+    result += address.toString();
+    result += " Tel: ";
+    result += tel;
+    result += " Email: ";
+    result += email;
+    result += " Estado Civil: ";
+    result += status;
+    result += "\n";
+
+    return result;
     }
 
 /*** Dependientes Económicos ***/
@@ -119,7 +146,7 @@ bool PersonalData::findData(Name& aux){
     return false;
 }
 
-std::string PersonalData::toString() {
+std::string PersonalData::toStringDependents() {
     std::string result;
     char years[5];
     int age;
